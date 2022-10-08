@@ -11,3 +11,5 @@ vertex *insert_before(vertex *start, int find_x, int find_y, int x, int y);
 void display_vertices(vertex *start);
 void find_vertex(vertex *start, int x, int y);
 vertex *delete_vertex(vertex *start, int x, int y);
+int count_vertices(vertex *start);
+float find_distance_from_origin(int x, int y);

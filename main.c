@@ -35,7 +35,9 @@ This programme draws a point, a line segment or regular polygon of any size
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 #include "modify.h"
+#include "bubble_sort.h"
 
 int main() {
     vertex *start = NULL; int choice, find_x, find_y, x, y;
@@ -49,12 +51,15 @@ int main() {
         printf("4. Insert a new vertex before a vertex \n");
         printf("5. Find a vertex \n");
         printf("6. Delete a vertex \n");
-        printf("7. Quit \n");
+        printf("7. Count number of vertices \n");
+        printf("8. Find distance to vertex from origin (0,0) \n");
+        printf("9. Bubble sort vertices accroding to the distance from origin (0,0) \n");
+        printf("10. Quit \n");
         printf("Enter your choice \n \n");
 
         scanf("%d", &choice);
 
-        if(choice == 7)
+        if(choice == 10)
             break;
 
         switch(choice) {
@@ -100,8 +105,22 @@ int main() {
                 scanf("%d", &find_y);
                 start = delete_vertex(start, find_x, find_y);
                 break;
+            case 7:
+                printf("There are %d vertices", count_vertices(start));
+                break;
+            case 8:
+                printf("Enter the x-coordinate of the vertex \n");
+                scanf("%d", &x);
+                printf("Enter the y-coordinate of the vertex \n");
+                scanf("%d", &y);
+                printf("Distance from origin(0,0) to a vertex at (%d, %d) is %.2f \n", 
+                    x,y, find_distance_from_origin(x, y));
+                break;
+            case 9:
+                start = bubble_sort(start);
+                break;
             default:
-                printf("Invalid input");
+                printf("Invalid input \n");
                 break;
         } // end of switch
 

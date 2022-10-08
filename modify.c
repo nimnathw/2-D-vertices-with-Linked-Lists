@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 #include "modify.h"
 
 vertex *create_linked_list(vertex *start) {
@@ -166,3 +167,28 @@ vertex *delete_vertex(vertex *start, int x, int y) {
     printf("Vertex with given x and y not found \n");
     return start;
 } // end of delete_vertex()
+
+int count_vertices(vertex *start){
+    vertex *temp; int count;
+    
+    if (start == NULL) {
+        printf("Empty list \n");
+        return 0;
+    }
+
+    count = 0;
+    temp = start;
+    while (temp != NULL) {
+        temp = temp->next;
+        count +=1;
+    }
+
+    return count;
+
+} // end of count_vertices()
+
+float find_distance_from_origin(int x, int y){
+    return sqrt(pow(x, 2) + pow(y, 2));
+
+}; // end of find_distance_from_origin()
+
