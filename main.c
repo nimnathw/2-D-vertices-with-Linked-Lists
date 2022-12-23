@@ -38,6 +38,7 @@ This programme draws a point, a line segment or regular polygon of any size
 #include<math.h>
 #include "modify.h"
 #include "bubble_sort.h"
+#include "merge_sort.h"
 
 int main() {
     vertex *start = NULL; int choice, find_x, find_y, x, y;
@@ -53,7 +54,7 @@ int main() {
         printf("6. Delete a vertex \n");
         printf("7. Count number of vertices \n");
         printf("8. Find distance to vertex from origin (0,0) \n");
-        printf("9. Bubble sort vertices accroding to the distance from origin (0,0) \n");
+        printf("9. Sort vertices accroding to the distance from origin (0,0) \n");
         printf("10. Quit \n");
         printf("Enter your choice \n \n");
 
@@ -117,7 +118,7 @@ int main() {
                     x,y, find_distance_from_origin(x, y));
                 break;
             case 9:
-                start = bubble_sort(start);
+                start = merge_sort(start);
                 break;
             default:
                 printf("Invalid input \n");

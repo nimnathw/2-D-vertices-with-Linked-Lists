@@ -4,8 +4,8 @@ OBJECTS= *.o
 
 
 # Link command
-output: main.o modify.o bubble_sort.o
-	$(CC) main.o modify.o bubble_sort.o -o output ${CFLAGS}
+output: main.o modify.o bubble_sort.o merge_sort.o
+	$(CC) main.o modify.o bubble_sort.o merge_sort.o -o output ${CFLAGS}
 
 # Compilation commands
 main.o: main.c
@@ -17,6 +17,9 @@ modify.o: modify.c modify.h
 bubble_sort.o: bubble_sort.c bubble_sort.h modify.h
 	${CC} -c bubble_sort.c
 
+merge_sort.o: merge_sort.c merge_sort.h modify.h
+	${CC} -c merge_sort.c
+	
 # rule to delete object files and executable file
 clean:
 	rm ${OBJECTS} output
